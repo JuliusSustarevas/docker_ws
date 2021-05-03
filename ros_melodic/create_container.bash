@@ -3,6 +3,7 @@ docker build . -t melodic_ws
 
 docker run -it \
 --env="DISPLAY" \
+--privileged="true" \
 --network="host" \
 --workdir="/home/melodik/ws" \
 --volume="/home/jj/ws:/home/melodik/ws:delegated" \
@@ -11,3 +12,7 @@ docker run -it \
 --device-cgroup-rule 'a *:* rwm' \
 --name melodic_ws \
 melodic_ws
+
+
+
+# --env="QT_X11_NO_MITSHM=1" \
