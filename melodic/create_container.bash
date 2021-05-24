@@ -1,5 +1,7 @@
 #!/bin/bash
-docker build . -t jj_melodic --no-cache
+__NAME__1="jj_melodic"
+
+docker build . -t ${__NAME__1} --no-cache
 
 docker run -it \
 --user=$(id -u $USER):$(id -g $USER) \
@@ -12,9 +14,11 @@ docker run -it \
 --volume="/etc/shadow:/etc/shadow:ro" \
 --volume="/etc/sudoers.d:/etc/sudoers.d:ro" \
 --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+--volume="/dev:/dev" \
+--volume="/etc/udev:/etc/udev" \
 --privileged="true" \
 --network="host" \
 --device /dev/bus/usb \
 --device-cgroup-rule 'a *:* rwm' \
 --name jj_melodic \
-jj_melodic
+${__NAME__1}
