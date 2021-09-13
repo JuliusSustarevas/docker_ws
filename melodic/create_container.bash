@@ -1,7 +1,7 @@
 #!/bin/bash
 __NAME__1="jj_melodic"
 
-docker build . -t ${__NAME__1} 
+# docker build . -t ${__NAME__1} 
 
 docker run -it \
 --user=$(id -u $USER):$(id -g $USER) \
@@ -20,5 +20,7 @@ docker run -it \
 --network="host" \
 --device /dev/bus/usb \
 --device-cgroup-rule 'a *:* rwm' \
+--cap-add=sys_nice \
+--ulimit rtprio=99 \
 --name ${__NAME__1} \
 ${__NAME__1}
