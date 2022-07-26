@@ -1,5 +1,5 @@
 #!/bin/bash
-__NAME__1="melodic"
+__NAME__1="foxy"
 
 docker build . -t ${__NAME__1} 
 
@@ -20,5 +20,6 @@ docker run -it \
 --network="host" \
 --device /dev/bus/usb \
 --device-cgroup-rule 'a *:* rwm' \
+--security-opt seccomp=unconfined \
 --name ${__NAME__1} \
 ${__NAME__1}

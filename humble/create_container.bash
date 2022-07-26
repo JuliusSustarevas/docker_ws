@@ -1,7 +1,7 @@
 #!/bin/bash
-__NAME__1="melodic"
+__NAME__1="humble"
 
-docker build . -t ${__NAME__1} 
+docker build . --no-cache -t ${__NAME__1} 
 
 docker run -it \
 --user=$(id -u $USER):$(id -g $USER) \
@@ -20,5 +20,6 @@ docker run -it \
 --network="host" \
 --device /dev/bus/usb \
 --device-cgroup-rule 'a *:* rwm' \
+--security-opt seccomp=unconfined \
 --name ${__NAME__1} \
 ${__NAME__1}

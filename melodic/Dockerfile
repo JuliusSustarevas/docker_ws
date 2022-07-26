@@ -2,7 +2,8 @@ FROM osrf/ros:melodic-desktop-full
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Key update
-RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+# RUN curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+
 
 RUN apt-get update\
     && apt-get upgrade -y --no-install-recommends\
@@ -10,8 +11,6 @@ RUN apt-get update\
     python-catkin-tools\   
     nano\
     ros-melodic-joint-state-publisher*\
-    ros-melodic-moveit\
-    ros-melodic-move-base\
     iputils-ping\
     net-tools\    
     && apt-get update\

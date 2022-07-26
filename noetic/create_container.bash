@@ -1,5 +1,5 @@
 #!/bin/bash
-__NAME__1="jj_noetic"
+__NAME__1="noetic"
 
 docker build . -t ${__NAME__1} 
 
