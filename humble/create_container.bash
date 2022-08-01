@@ -1,7 +1,7 @@
 #!/bin/bash
 __NAME__1="humble"
 
-docker build . --no-cache -t ${__NAME__1} 
+docker build . -t ${__NAME__1} 
 
 docker run -it \
 --user=$(id -u $USER):$(id -g $USER) \
